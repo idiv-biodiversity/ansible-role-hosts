@@ -1,0 +1,15 @@
+---
+
+- name: set hostname
+  ansible.builtin.hostname:
+    name: '{{ system_hostname }}'
+
+- name: configure /etc/hosts
+  ansible.builtin.template:
+    src: '{{ lookup("first_found", __hosts_templates) }}'
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+
+...

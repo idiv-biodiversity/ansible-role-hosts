@@ -1,0 +1,18 @@
+---
+
+__hosts_os_distro: >-
+  {{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}
+
+__hosts_os_family: >-
+  {{ ansible_os_family | lower }}-{{ ansible_distribution_major_version }}
+
+__hosts_templates:
+  files:
+    - '{{ __hosts_os_distro }}-hosts.j2'
+    - '{{ __hosts_os_family }}-hosts.j2'
+    - '{{ ansible_distribution | lower }}-hosts.j2'
+    - '{{ ansible_os_family | lower }}-hosts.j2'
+  paths:
+    - templates
+
+...

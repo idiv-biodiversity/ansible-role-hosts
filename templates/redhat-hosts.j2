@@ -1,0 +1,32 @@
+# {{ ansible_managed }}
+
+# -----------------------------------------------------------------------------
+# self
+# -----------------------------------------------------------------------------
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{% if system_hosts_manage_self %}
+
+{% if system_domain is defined %}
+127.0.1.1       {{ system_hostname }}.{{ system_domain }} {{ system_hostname }}
+{% else %}
+127.0.1.1       {{ system_hostname }}
+{% endif %}
+{% endif %}
+{% if system_hosts_sections | length %}
+{% for section in system_hosts_sections %}
+
+# -----------------------------------------------------------------------------
+# {{ section.name }}
+# -----------------------------------------------------------------------------
+
+{% for host in section.entries %}
+{% if host.aliases is defined %}
+{{ "%-16s" | format(host.address) }}{{ host.name }} {{ host.aliases | join(' ') }}
+{% else %}
+{{ "%-16s" | format(host.address) }}{{ host.name }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}

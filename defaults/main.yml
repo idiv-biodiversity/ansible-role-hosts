@@ -1,0 +1,9 @@
+---
+
+system_hostname: '{{ ansible_hostname }}'
+
+system_hosts_manage_self: yes
+
+system_hosts_sections: []
+
+...

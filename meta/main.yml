@@ -1,0 +1,24 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  role_name: hosts
+  author: Christian Krause
+  description: static host configuration
+  company: German Centre for Integrative Biodiversity Research (iDiv)
+  license: MIT
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: ArchLinux
+      versions:
+        - any
+    - name: EL
+      version:
+        - 7
+
+  galaxy_tags:
+    - hosts
+
+...
