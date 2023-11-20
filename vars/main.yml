@@ -1,17 +1,40 @@
 ---
 
-__hosts_os_distro: >-
-  {{ ansible_distribution | lower }}-{{ ansible_distribution_major_version }}
+# -----------------------------------------------------------------------------
+# distro / os handles
+# -----------------------------------------------------------------------------
 
-__hosts_os_family: >-
-  {{ ansible_os_family | lower }}-{{ ansible_distribution_major_version }}
+__hosts_distro: >-
+  {{ ansible_distribution | lower }}
 
-__hosts_templates:
-  files:
-    - '{{ __hosts_os_distro }}-hosts.j2'
-    - '{{ __hosts_os_family }}-hosts.j2'
-    - '{{ ansible_distribution | lower }}-hosts.j2'
-    - '{{ ansible_os_family | lower }}-hosts.j2'
+__hosts_os: >-
+  {{ ansible_os_family | lower }}
+
+__hosts_distro_version: >-
+  {{ __hosts_distro }}_{{ ansible_distribution_major_version }}
+
+__hosts_os_version: >-
+  {{ __hosts_os }}_{{ ansible_distribution_major_version }}
+
+# -----------------------------------------------------------------------------
+# first found snippets
+# -----------------------------------------------------------------------------
+
+__hosts_first_found:
+  - '{{ __hosts_distro_version }}'
+  - '{{ __hosts_os_version }}'
+  - '{{ __hosts_distro }}'
+  - '{{ __hosts_os }}'
+  - default
+
+__hosts_etc_templates:
+  files: >-
+    {{
+      __hosts_first_found |
+        map('regex_replace', '^', 'hosts_') |
+        map('regex_replace', '$', '.j2') |
+        list
+    }}
   paths:
     - templates
 

@@ -6,7 +6,7 @@
 
 - name: configure /etc/hosts
   ansible.builtin.template:
-    src: '{{ lookup("first_found", __hosts_templates) }}'
+    src: '{{ lookup("first_found", __hosts_etc_templates) }}'
     dest: /etc/hosts
     owner: root
     group: root
