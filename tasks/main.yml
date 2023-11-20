@@ -3,6 +3,7 @@
 - name: set hostname
   ansible.builtin.hostname:
     name: '{{ system_hostname }}'
+  become: yes
 
 - name: configure /etc/hosts
   ansible.builtin.template:
@@ -11,5 +12,6 @@
     owner: root
     group: root
     mode: 0644
+  become: yes
 
 ...
