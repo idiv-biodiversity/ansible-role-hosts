@@ -4,6 +4,8 @@ dependencies: []
 
 galaxy_info:
   role_name: hosts
+  namespace: idiv_biodiversity
+
   author: Christian Krause
   description: static host configuration
   company: German Centre for Integrative Biodiversity Research (iDiv)
