@@ -25,7 +25,7 @@ Table of Contents
 Requirements
 ------------
 
-- Ansible 2.10+
+- Ansible 2.10
 
 
 Role Variables
@@ -78,30 +78,23 @@ system_hosts_sections:
         aliases: [saturn]
 ```
 
+
 Dependencies
 ------------
-
-None.
-
-
-Example Playbook
-----------------
 
 Add to `requirements.yml`:
 
 ```yml
----
+roles:
 
-- src: idiv-biodiversity.hosts
-
-...
+  - name: idiv_biodiversity.hosts
+    src: https://github.com/idiv-biodiversity/ansible-role-hosts
+    version: v1.0.1
 ```
 
-Download:
 
-```console
-$ ansible-galaxy install -r requirements.yml
-```
+Example Playbook
+----------------
 
 ### Top-Level Playbook
 
@@ -114,7 +107,7 @@ Write a top-level playbook:
   hosts: head
 
   roles:
-    - role: idiv-biodiversity.hosts
+    - role: idiv_biodiversity.hosts
       tags:
         - hosts
 
@@ -130,7 +123,7 @@ Define the role dependency in `meta/main.yml`:
 
 dependencies:
 
-  - role: idiv-biodiversity.hosts
+  - role: idiv_biodiversity.hosts
     tags:
       - hosts
 
