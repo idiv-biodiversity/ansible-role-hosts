@@ -24,6 +24,12 @@ galaxy_info:
         - '8'
         - '9'
 
+    - name: Debian
+      version:
+        - buster
+        - bullseye
+        - bookworm
+
   galaxy_tags:
     - hosts
 
