@@ -89,7 +89,7 @@ roles:
 
   - name: idiv_biodiversity.hosts
     src: https://github.com/idiv-biodiversity/ansible-role-hosts
-    version: v1.0.1
+    version: vX.Y.Z
 ```
 
 
