@@ -24,11 +24,9 @@ galaxy_info:
         - '8'
         - '9'
 
-    - name: Debian
+    - name: Gentoo
       version:
-        - buster
-        - bullseye
-        - bookworm
+        - '2'
 
   galaxy_tags:
     - hosts
