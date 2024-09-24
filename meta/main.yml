@@ -30,6 +30,10 @@ galaxy_info:
         - bullseye
         - bookworm
 
+    - name: Gentoo
+      version:
+        - '2'
+
   galaxy_tags:
     - hosts
 
