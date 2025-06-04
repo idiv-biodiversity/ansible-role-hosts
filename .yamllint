@@ -5,6 +5,8 @@ yaml-files:
   - '*.yml'
   - '.yamllint'
 
+ignore-from-file: .gitignore
+
 extends: default
 
 rules:
@@ -31,6 +33,7 @@ rules:
   key-duplicates: enable
   line-length:
     max: 79
+    allow-non-breakable-words: yes
   new-lines:
     type: unix
   octal-values:
@@ -39,5 +42,7 @@ rules:
   truthy:
     allowed-values: ['yes', 'no']
     check-keys: no
+    ignore: >-
+      .github/workflows
 
 ...
