@@ -1,0 +1,38 @@
+---
+
+argument_specs:
+  main:
+    options:
+
+      system_hostname:
+        required: yes
+        type: str
+
+      system_hosts_manage_self:
+        required: yes
+        type: bool
+
+      system_hosts_sections:
+        required: yes
+        type: list
+        elements: dict
+        options:
+          name:
+            required: yes
+            type: str
+          entries:
+            required: yes
+            type: list
+            elements: dict
+            options:
+              name:
+                required: yes
+                type: str
+              address:
+                required: yes
+                type: str
+              aliases:
+                type: list
+                elements: str
+
+...
