@@ -5,16 +5,16 @@
 # -----------------------------------------------------------------------------
 
 __hosts_distro: >-
-  {{ ansible_distribution | lower }}
+  {{ ansible_facts.distribution | lower }}
 
 __hosts_os: >-
-  {{ ansible_os_family | lower }}
+  {{ ansible_facts.os_family | lower }}
 
 __hosts_distro_version: >-
-  {{ __hosts_distro }}_{{ ansible_distribution_major_version }}
+  {{ __hosts_distro }}_{{ ansible_facts.distribution_major_version }}
 
 __hosts_os_version: >-
-  {{ __hosts_os }}_{{ ansible_distribution_major_version }}
+  {{ __hosts_os }}_{{ ansible_facts.distribution_major_version }}
 
 # -----------------------------------------------------------------------------
 # first found snippets

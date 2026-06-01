@@ -34,7 +34,7 @@ Role Variables
 Self describing information:
 
 ```yml
-system_hostname: '{{ ansible_hostname }}'
+system_hostname: '{{ ansible_facts.hostname }}'
 system_domain: example.com
 ```
 
