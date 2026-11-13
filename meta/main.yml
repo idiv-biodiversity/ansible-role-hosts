@@ -26,8 +26,6 @@ galaxy_info:
 
     - name: Debian
       version:
-        - buster
-        - bullseye
         - bookworm
 
     - name: Gentoo
